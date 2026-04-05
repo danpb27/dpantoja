@@ -107,6 +107,29 @@ button {
   background: rgba(255,255,255,0.08);
 }
 
+/* Base button glow transition */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow effect on hover */
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 10px rgba(239, 68, 68, 0.4),
+    0 0 20px rgba(239, 68, 68, 0.3),
+    0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+/* Slight stronger glow for primary button */
+.btn.primary:hover {
+  box-shadow:
+    0 0 12px rgba(239, 68, 68, 0.6),
+    0 0 28px rgba(239, 68, 68, 0.4),
+    0 10px 24px rgba(0, 0, 0, 0.3);
+}
+
 .card .btn {
   width: 100%;
   text-align: center;

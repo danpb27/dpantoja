@@ -24,11 +24,34 @@ body {
   margin: 0;
   font-family: Inter, Arial, Helvetica, sans-serif;
   color: var(--text);
-  background:
-    radial-gradient(circle at top left, rgba(239, 68, 68, 0.22), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.08), transparent 25%),
-    linear-gradient(135deg, #020617, #111827 45%, #1f2937);
   min-height: 100vh;
+  background: #020617;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  background:
+    radial-gradient(circle at 20% 20%, rgba(239, 68, 68, 0.25), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.06), transparent 30%);
+
+  animation: pulseBackground 8s ease-in-out infinite alternate;
+}
+
+@keyframes pulseBackground {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
 }
 
 a {

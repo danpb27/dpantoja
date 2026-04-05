@@ -35,9 +35,28 @@ window.addEventListener("scroll", () => {
   });
 });
 
-const glow = document.querySelector('.cursor-glow');
+const glow = document.querySelector(".cursor-glow");
 
-document.addEventListener('mousemove', (e) => {
-  glow.style.left = e.clientX + 'px';
-  glow.style.top = e.clientY + 'px';
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
+let currentX = mouseX;
+let currentY = mouseY;
+
+document.addEventListener("mousemove", (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
 });
+
+function animateGlow() {
+  currentX += (mouseX - currentX) * 0.08;
+  currentY += (mouseY - currentY) * 0.08;
+
+  if (glow) {
+    glow.style.left = currentX + "px";
+    glow.style.top = currentY + "px";
+  }
+
+  requestAnimationFrame(animateGlow);
+}
+
+animateGlow();

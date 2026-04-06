@@ -92,3 +92,13 @@ cards.forEach((card) => {
     `;
   });
 });
+
+window.addEventListener("load", () => {
+  const chips = document.querySelectorAll(".chip");
+
+  chips.forEach((chip, index) => {
+    setTimeout(() => {
+      chip.classList.add("show");
+    }, index * 120);
+  });
+});
